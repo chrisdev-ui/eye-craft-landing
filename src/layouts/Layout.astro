@@ -16,7 +16,28 @@ const { title, description } = Astro.props;
 		<meta name="description" content={description} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href="https://example.com" />
 		<meta name="viewport" content="width=device-width" />
+
+		<meta name="keywords" content="ojo, laboratorio, prótesis ocular, oftálmico, oftálmica, visión, visual, cavidad ocular, ojos, implante ocular, oftalmología protésica, prótesis de ojo, chrisdev-ui">
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@infoLaVelada" />
+		<meta name="twitter:creator" content="@IbaiLlanos" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="https://lavelada.es/og.jpg" />
+
+		<meta name="og:image" content="https://lavelada.es/og.jpg" />
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<meta name="og:url" content="https://lavelada.es" />
+		<meta name="og:site_name" content="La Velada 4" />
+		<meta name="og:type" content="website" />
+		<meta name="og:locale" content="es_ES" />
+
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
 	</head>
 	<body>
 		<slot />
