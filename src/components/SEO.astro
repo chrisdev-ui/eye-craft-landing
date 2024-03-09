@@ -1,0 +1,50 @@
+---
+import hindMadurai from "@fontsource/hind-madurai/files/hind-madurai-latin-300-normal.woff"
+
+interface Props {
+	title: string
+	description: string
+	preloadImgLCP?: string
+}
+const { title, description, preloadImgLCP } = Astro.props
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+<link rel="preload" href={hindMadurai} as="font" type="font/woff2" crossorigin />
+{
+	preloadImgLCP && (
+		<link rel="preload" href={preloadImgLCP} as="image" type="image/webp" crossorigin />
+	)
+}
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href="https://example.com" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#000000" />
+
+<meta
+	name="keywords"
+	content="ojo, laboratorio, prótesis ocular, oftálmico, oftálmica, visión, visual, cavidad ocular, ojos, implante ocular, oftalmología protésica, prótesis de ojo, chrisdev-ui"
+/>
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@example" />
+<meta name="twitter:creator" content="@Example" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="https://example.com/og.png" />
+
+<meta name="og:image" content="https://example.com/og.png" />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content="https://example.com" />
+<meta name="og:site_name" content="Laboratorio de prótesis oculares" />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="es_ES" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
