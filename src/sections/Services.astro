@@ -1,10 +1,30 @@
 ---
-
+import Typography from "@/components/Typography.astro"
 ---
 
 <section
 	id="services"
-	class="relative flex h-screen flex-col items-center justify-center px-8 py-0 text-center text-black dark:text-white"
+	class="relative flex h-screen flex-col px-8 pb-0 pt-[70px] text-center text-black dark:text-white"
 >
-	Servicios
+	<Typography
+		as="h2"
+		variant="h2"
+		color="black"
+		class:list={"my-10 animate-slide-in-top tracking-widest"}
+	>
+		Nuestros <span
+			class="bg-gradient-to-r from-blue-400 via-green-300 to-blue-700 bg-clip-text text-transparent"
+			>Servicios</span
+		>
+	</Typography>
+	<Typography
+		as="p"
+		variant="body1"
+		color="black"
+		class:list="mb-10 animate-slide-in-top max-w-screen-lg text-center mx-auto"
+		>Una prótesis bien lograda es aquella en la que se copian en lo posible todas las
+		características del ojo bueno, su tamaño y forma para que a la hora de colacarla quede muy
+		similar. Además si el paciente tiene movilidad en el fondo de saco este se transmitirá a la
+		prótesis permitiendo que no se note ninguna diferencia.</Typography
+	>
 </section>
