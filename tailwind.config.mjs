@@ -21,6 +21,10 @@ export default {
 				xs: "360px",
 				...tailwindTheme.screens,
 			},
+			boxShadow: {
+				"nav": "0 0 20px rgba(0, 0, 0, 0.1)",
+				"nav-dark": "0 0 20px rgba(252, 252, 252, 0.6)",
+			},
 		},
 	},
 
