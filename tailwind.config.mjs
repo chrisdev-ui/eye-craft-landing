@@ -8,7 +8,7 @@ export default {
 		extend: {
 			fontFamily: {
 				title: ["Montserrat", ...tailwindTheme.fontFamily.mono],
-				subTitle: ["Lora", ...tailwindTheme.fontFamily.serif],
+				subtitle: ["Lora", ...tailwindTheme.fontFamily.serif],
 				body: ["Hind\\ Madurai", ...tailwindTheme.fontFamily.sans],
 			},
 			colors: {
