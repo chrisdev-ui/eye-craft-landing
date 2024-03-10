@@ -43,6 +43,7 @@ const { title, description, preloadImgLCP } = Astro.props
 					"Open Sans",
 					"Helvetica Neue";
 				background: var(--color-background);
+				color: var(--color-text);
 				overflow-x: hidden;
 				overscroll-behavior: none;
 			}
@@ -83,6 +84,13 @@ const { title, description, preloadImgLCP } = Astro.props
 
 			::-webkit-scrollbar-corner {
 				background: var(--background-image);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--color-background: #000000;
+					--color-text: #ffffff;
+				}
 			}
 		</style>
 	</body>

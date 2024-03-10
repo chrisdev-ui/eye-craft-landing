@@ -1,0 +1,119 @@
+---
+
+---
+
+<nav
+	class="navigation absolute bottom-0 z-10 flex h-[70px] w-full bg-slate-200 shadow-nav dark:bg-neutral-800 dark:shadow-nav-dark"
+>
+	<a
+		class="navigation-tab flex flex-1 items-center justify-center text-base tracking-widest text-black transition-all duration-500 animate-ease hover:bg-black hover:text-white hover:transition-all hover:duration-500 hover:animate-ease dark:text-white dark:hover:bg-white dark:hover:text-black"
+		href="#services">Servicios</a
+	>
+	<a
+		class="navigation-tab flex flex-1 items-center justify-center text-base tracking-widest text-black transition-all duration-500 animate-ease hover:bg-black hover:text-white hover:transition-all hover:duration-500 hover:animate-ease dark:text-white dark:hover:bg-white dark:hover:text-black"
+		href="#products">Productos</a
+	>
+	<a
+		class="navigation-tab flex flex-1 items-center justify-center text-base tracking-widest text-black transition-all duration-500 animate-ease hover:bg-black hover:text-white hover:transition-all hover:duration-500 hover:animate-ease dark:text-white dark:hover:bg-white dark:hover:text-black"
+		href="#testimonials">Testimonios</a
+	>
+	<a
+		class="navigation-tab flex flex-1 items-center justify-center text-base tracking-widest text-black transition-all duration-500 animate-ease hover:bg-black hover:text-white hover:transition-all hover:duration-500 hover:animate-ease dark:text-white dark:hover:bg-white dark:hover:text-black"
+		href="#contact">Contacto</a
+	>
+	<span
+		class="absolute bottom-0 h-1.5 w-0 bg-black transition-[left] duration-300 animate-ease dark:bg-white"
+	></span>
+</nav>
+<script is:inline>
+	class StickyNavigation {
+		constructor() {
+			this.currentId = null
+			this.currentTab = null
+			this.tabContainerHeight = 70
+			this.init()
+		}
+
+		init() {
+			document.querySelectorAll(".navigation-tab").forEach((tab) => {
+				tab.addEventListener("click", (event) => {
+					this.onTabClick(event, tab)
+				})
+			})
+
+			window.addEventListener("scroll", () => this.onScroll())
+			window.addEventListener("resize", () => this.onResize())
+		}
+
+		onTabClick(event, element) {
+			event.preventDefault()
+			const id = element.getAttribute("href")
+			const section = document.querySelector(id)
+			if (section) {
+				section.scrollIntoView({
+					behavior: "smooth",
+					block: "start",
+				})
+			}
+		}
+
+		onScroll() {
+			this.checkTabContainerPosition()
+			this.findCurrentTabSelector()
+		}
+
+		onResize() {
+			if (this.currentId) {
+				this.setSliderCss()
+			}
+		}
+
+		checkTabContainerPosition() {
+			const heroSection = document.querySelector(".hero")
+			const offset = heroSection.offsetTop + heroSection.offsetHeight - this.tabContainerHeight
+			if (window.scrollY > offset) {
+				document.querySelector(".navigation").classList.add("navigation-top")
+			} else {
+				document.querySelector(".navigation").classList.remove("navigation-top")
+			}
+		}
+
+		findCurrentTabSelector() {
+			let newCurrentId
+			let newCurrentTab
+			document.querySelectorAll(".navigation-tab").forEach((tab) => {
+				const id = tab.getAttribute("href")
+				const section = document.querySelector(id)
+				const rect = section.getBoundingClientRect()
+				if (rect.top <= this.tabContainerHeight && rect.bottom > this.tabContainerHeight) {
+					newCurrentId = id
+					newCurrentTab = tab
+				}
+			})
+			this.currentId = newCurrentId
+			this.currentTab = newCurrentTab
+			this.setSliderCss()
+		}
+
+		setSliderCss() {
+			let width = 0
+			let left = 0
+			if (this.currentTab) {
+				width = this.currentTab.offsetWidth
+				left = this.currentTab.offsetLeft
+			}
+			document.querySelector(".navigation span").style.cssText =
+				`width: ${width}px; left: ${left}px;`
+		}
+	}
+
+	if (typeof window !== "undefined") {
+		;(() => new StickyNavigation())()
+	}
+</script>
+<style>
+	.navigation-top {
+		position: fixed;
+		top: 0;
+	}
+</style>
