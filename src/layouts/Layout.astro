@@ -20,13 +20,25 @@ const { title, description, preloadImgLCP } = Astro.props
 		<slot />
 		<style is:global>
 			:root {
-				--color-primary: #0070f3;
-				--color-secondary: #ff0080;
-				--color-tertiary: #00ff72;
+				--color-primary: #fca311;
+				--color-secondary: #14213d;
+				--color-secondary-accent: #192a4d;
+				--color-tertiary: #e5e5e5;
 				--color-accent: #0070f3;
 
 				--color-background: #ffffff;
 				--color-text: #000000;
+
+				/* Texts */
+				--topper-font-size: clamp(0.8125rem, 1.6vw, 1rem);
+				--header-font-size: clamp(1.9375rem, 3.9vw, 3.0625rem);
+				--body-font-size: 1rem;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
 			}
 
 			html {
@@ -46,6 +58,12 @@ const { title, description, preloadImgLCP } = Astro.props
 				color: var(--color-text);
 				overflow-x: hidden;
 				overscroll-behavior: none;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: var(--body-font-size);
 			}
 
 			main {
