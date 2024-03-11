@@ -4,7 +4,7 @@ import type { HTMLTag, Polymorphic } from "astro/types"
 type Props<Tag extends HTMLTag> = Polymorphic<{
 	as: Tag
 	variant: keyof typeof variantClasses
-	color: keyof typeof colorClasses
+	color?: keyof typeof colorClasses
 }>
 
 const { as: Tag, class: className, variant, color, ...props } = Astro.props
@@ -13,6 +13,7 @@ const variantClasses: { [key: string]: string } = {
 	h1: "m-0 font-title text-5xl font-bold",
 	h2: "m-0 font-title text-4xl font-semibold",
 	h3: "text-base",
+	span: "mb-1 block font-body text-topper font-bold uppercase leading-[1.2em] tracking-widest text-primary [text-align:inherit]",
 	body1: "",
 }
 

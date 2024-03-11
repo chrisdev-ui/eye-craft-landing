@@ -1,10 +1,79 @@
 ---
+import ProductItem from "@/components/ProductItem.astro"
+import ProductsContainer from "@/components/ProductsContainer.astro"
 
+export interface Product {
+	id: string
+	name: string
+	description: string
+	image: string
+}
+
+const products: Product[] = [
+	{
+		id: "protesis_ocular",
+		name: "Prótesis Oculares",
+		description: "Personalizadas para cada paciente, con estética y funcionalidad excepcionales.",
+		image: "/img/products/protesis-ocular.webp",
+	},
+	{
+		id: "protector_corneal",
+		name: "Protector Corneal",
+		description:
+			"Especialmente diseñado para cirugías de párpado, brindando protección y confort óptimos.",
+		image: "/img/products/protector-corneal.webp",
+	},
+	{
+		id: "protector-anillo-simblefaron",
+		name: "Prótector de Anillo para Simbléfaron",
+		description:
+			"Diseñado para facilitar la cirugía de simbléfaron, asegurando protección y resultados óptimos.",
+		image: "/img/products/anillo-simblefaron.webp",
+	},
+	{
+		id: "conformador-quirurgico",
+		name: "Conformador Quirúrgico",
+		description:
+			"Instrumento esencial para la preparación precisa en cirugías oftalmológicas (Distintos tamaños).",
+		image: "/img/products/conformador-quirurgico.webp",
+	},
+	{
+		id: "implante-esferico",
+		name: "Implantes Esféricos",
+		description:
+			"Disponibles en tamaños de 15mm, 16mm y 17mm para adaptarse a diversas necesidades quirúrgicas.",
+		image: "/img/products/implante-esferico.webp",
+	},
+	{
+		id: "implante-tipo-tunel-arruga",
+		name: "Implantes de Tipo Túnel de Arruga",
+		description:
+			"Innovadores implantes diseñados para corregir arrugas palpebrales, con resultados naturales y duraderos (No. 1, 2, 3).",
+		image: "/img/products/protesis-ocular.webp",
+	},
+]
 ---
 
-<section
-	id="products"
-	class="relative flex h-screen flex-col items-center justify-center px-8 py-0 text-center text-black dark:text-white"
->
-	Productos
+<section id="products" class="relative px-8 pb-0 pt-32 text-black dark:text-white">
+	<div class="mx-auto flex w-full max-w-[69rem] flex-col items-center gap-[clamp(3rem,6vw,4rem)]">
+		<div class="flex w-full flex-col items-center text-center">
+			<span
+				class="mb-1 block font-body text-topper font-bold uppercase leading-[1.2em] tracking-widest text-primary [text-align:inherit]"
+				>Productos</span
+			>
+			<h2
+				class="relative mx-0 mb-4 mt-0 max-w-[43.75rem] font-title text-header font-black leading-[1.2em] text-black [text-align:inherit] dark:text-white"
+			>
+				Explora Nuestra Gama de Prótesis Oculares
+			</h2>
+			<p class="m-0 w-full max-w-4xl leading-[1.5em] text-black dark:text-white">
+				Descubre nuestra colección de prótesis oculares diseñadas con la más alta calidad y atención
+				al detalle. Desde prótesis personalizadas hasta opciones estándar, ofrecemos soluciones para
+				satisfacer las necesidades únicas de cada paciente. Cada prótesis está diseñada para brindar
+				comodidad, funcionalidad y una apariencia natural que restaure tu confianza y mejore tu
+				calidad de vida.
+			</p>
+		</div>
+		<ProductsContainer>{products.map((product) => <ProductItem {...product} />)}</ProductsContainer>
+	</div>
 </section>

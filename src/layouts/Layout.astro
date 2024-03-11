@@ -20,7 +20,7 @@ const { title, description, preloadImgLCP } = Astro.props
 		<slot />
 		<style is:global>
 			:root {
-				--color-primary: #fca311;
+				--color-primary: 37 98% 53%;
 				--color-secondary: #14213d;
 				--color-secondary-accent: #192a4d;
 				--color-tertiary: #e5e5e5;
@@ -32,6 +32,8 @@ const { title, description, preloadImgLCP } = Astro.props
 				/* Texts */
 				--topper-font-size: clamp(0.8125rem, 1.6vw, 1rem);
 				--header-font-size: clamp(1.9375rem, 3.9vw, 3.0625rem);
+				--h3-font-size: clamp(1.25rem, 2vw, 1.5625rem);
+				--card-body-font-size: clamp(0.8125rem, 1vw, 1rem);
 				--body-font-size: 1rem;
 			}
 

@@ -12,12 +12,14 @@ export default {
 				body: ["Hind\\ Madurai", ...tailwindTheme.fontFamily.sans],
 			},
 			fontSize: {
-				topper: "var(--topper-font-size)",
-				header: "var(--header-font-size)",
-				body: "var(--body-font-size)",
+				"topper": "var(--topper-font-size)",
+				"header": "var(--header-font-size)",
+				"body": "var(--body-font-size)",
+				"h3": "var(--h3-font-size)",
+				"card-body": "var(--card-body-font-size)",
 			},
 			colors: {
-				"primary": "var(--color-primary)",
+				"primary": "hsl(var(--color-primary) / <alpha-value>)",
 				"secondary": "var(--color-secondary)",
 				"secondary-accent": "var(--color-secondary-accent)",
 				"tertiary": "var(--color-tertiary)",
@@ -25,6 +27,7 @@ export default {
 			},
 			screens: {
 				xs: "360px",
+				s: "600px",
 				...tailwindTheme.screens,
 			},
 			boxShadow: {

@@ -1,0 +1,54 @@
+---
+import type { Product } from "@/sections/Products.astro"
+
+interface Props extends Product {}
+
+const { id, name, description, image } = Astro.props
+---
+
+<a
+	href=`#${id}`
+	class="group relative m-0 block aspect-square h-full w-full s:col-span-6 md:col-span-4"
+>
+	<picture class="relative m-auto block h-full w-full">
+		<source media="(max-width: 600px)" srcset={image} />
+		<source media="(min-width: 601px)" srcset={image} />
+		<img
+			class="absolute left-0 top-0 h-full w-full object-cover"
+			loading="lazy"
+			decoding="async"
+			width="346"
+			height="346"
+			src={image}
+			alt={name}
+		/>
+	</picture>
+	<div
+		class="pointer-events-none absolute left-0 top-0 z-10 box-border flex h-full w-full flex-col items-center justify-center bg-primary/90 p-[1em] text-center opacity-0 [perspective:700px] [transition:opacity_0.3s] group-hover:opacity-100"
+	>
+		<picture
+			class="relative mb-[clamp(1rem,5vw,2rem)] inline-flex h-[clamp(3.125rem,5vw,3.75rem)] w-[clamp(3.125rem,5vw,3.75rem)] flex-none items-center justify-center rounded-full bg-white [outline:0.5rem_solid_rgba(255,255,255,0.7)] [transform:rotateY(90deg)] [transition:transform_0.5s] group-hover:[transform:rotateY(0)]"
+		>
+			<img
+				loading="lazy"
+				decoding="async"
+				src="/icons/right-arrow.svg"
+				alt={name}
+				width="20"
+				height="20"
+				class="h-6 w-6"
+				aria-hidden="true"
+			/>
+		</picture>
+		<h3
+			class="mx-auto my-0 mb-2 max-w-[16.875rem] translate-y-[0.625rem] text-h3 font-bold leading-[1.2em] text-white opacity-0 [transition-delay:0.1s] [transition:opacity_0.3s,_transform_0.3s_ease-out] group-hover:translate-y-0 group-hover:opacity-100"
+		>
+			{name}
+		</h3>
+		<p
+			class="mx-auto my-0 max-w-[16.875rem] translate-y-[0.625rem] text-card-body leading-[1.5em] text-white opacity-0 [transition:opacity_0.3s,_transform_0.3s_ease-out] [transition-delay:0.2s] group-hover:translate-y-0 group-hover:opacity-100"
+		>
+			{description}
+		</p>
+	</div>
+</a>
