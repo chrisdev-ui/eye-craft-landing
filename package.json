@@ -18,7 +18,8 @@
     "@fontsource-variable/lora": "5.0.15",
     "@fontsource-variable/montserrat": "5.0.18",
     "@fontsource/hind-madurai": "5.0.12",
-    "astro": "4.4.5"
+    "astro": "4.4.5",
+    "resend": "3.2.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.43.1",
