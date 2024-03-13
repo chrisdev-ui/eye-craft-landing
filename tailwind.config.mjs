@@ -17,6 +17,8 @@ export default {
 				"body": "var(--body-font-size)",
 				"h3": "var(--h3-font-size)",
 				"card-body": "var(--card-body-font-size)",
+				"form-title": "var(--form-title-font-size)",
+				"form-label": "var(--form-label-font-size)",
 			},
 			colors: {
 				"primary": "hsl(var(--color-primary) / <alpha-value>)",
