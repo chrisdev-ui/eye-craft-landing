@@ -34,13 +34,11 @@ export default function ContactForm() {
 			})
 			const data: DataProps = (await response.json()) as DataProps
 			if (response.ok) {
-				if (data.message) {
-					setResponseMessage({
-						message: data.message,
-						type: "success",
-					})
-					formRef.current?.reset()
-				}
+				setResponseMessage({
+					message: data.message,
+					type: "success",
+				})
+				formRef.current?.reset()
 			} else {
 				setResponseMessage({
 					message: data.message,
