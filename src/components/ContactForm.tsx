@@ -1,5 +1,5 @@
 import React from "preact/compat"
-import { useEffect, useState } from "preact/hooks"
+import { useEffect, useRef, useState } from "preact/hooks"
 
 import { cn } from "@/utils"
 
@@ -15,6 +15,7 @@ interface ResponseMessage {
 }
 
 export default function ContactForm() {
+	const formRef = useRef<HTMLFormElement | null>(null)
 	const [responseMessage, setResponseMessage] = useState<ResponseMessage>({
 		message: "",
 		type: null,
@@ -59,6 +60,7 @@ export default function ContactForm() {
 				})
 			}, 5000)
 			setTimeoutId(id)
+			formRef.current?.reset()
 		}
 	}
 
@@ -72,6 +74,7 @@ export default function ContactForm() {
 
 	return (
 		<form
+			ref={formRef}
 			className="box-border flex w-full max-w-[39.375rem] flex-wrap items-center justify-between gap-3 rounded-2xl bg-tertiary p-[clamp(1.5rem,18vw,3rem)_clamp(1rem,4vw,3rem)] lg:w-[46%] lg:max-w-[36.125rem] dark:bg-secondary"
 			onSubmit={handleSubmit}
 		>
