@@ -50,7 +50,6 @@ export default function ContactForm() {
 				message: "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
 				type: "error",
 			})
-			return
 		} finally {
 			setIsLoading(false)
 			const id = setTimeout(() => {
