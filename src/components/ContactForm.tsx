@@ -72,7 +72,7 @@ export default function ContactForm() {
 
 	return (
 		<form
-			id="contact"
+			id="contact-form"
 			className="box-border flex w-full max-w-[39.375rem] flex-wrap items-center justify-between gap-3 rounded-2xl bg-tertiary p-[clamp(1.5rem,18vw,3rem)_clamp(1rem,4vw,3rem)] lg:w-[46%] lg:max-w-[36.125rem] dark:bg-secondary"
 			onSubmit={handleSubmit}
 		>
