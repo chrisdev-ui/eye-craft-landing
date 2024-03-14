@@ -39,6 +39,7 @@ export default function ContactForm() {
 						message: data.message,
 						type: "success",
 					})
+					formRef.current?.reset()
 				}
 			} else {
 				setResponseMessage({
@@ -51,6 +52,7 @@ export default function ContactForm() {
 				message: "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
 				type: "error",
 			})
+			return
 		} finally {
 			setIsLoading(false)
 			const id = setTimeout(() => {
@@ -60,7 +62,6 @@ export default function ContactForm() {
 				})
 			}, 5000)
 			setTimeoutId(id)
-			formRef.current?.reset()
 		}
 	}
 
