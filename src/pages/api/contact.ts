@@ -26,8 +26,8 @@ export const POST: APIRoute = async ({ request }) => {
 		)
 	}
 	const send = await resend.emails.send({
-		from: "Contact <no-reply@resend.dev>",
-		to: ["web.christian.dev@gmail.com"],
+		from: "Contacto <no-reply@resend.dev>",
+		to: ["web.christian.dev@gmail.com", "jelemus024726@gmail.com"],
 		subject: "Nuevo mensaje de contacto desde tu página web",
 		html: htmlGenerator({
 			name,
