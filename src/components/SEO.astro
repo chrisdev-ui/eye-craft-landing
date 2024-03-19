@@ -1,12 +1,27 @@
 ---
 import hindMadurai from "@fontsource/hind-madurai/files/hind-madurai-latin-300-normal.woff"
 
+interface Preload {
+	as: string
+	href: string
+	type: string
+}
+
 interface Props {
 	title: string
 	description: string
-	preloadImgLCP?: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
 }
-const { title, description, preloadImgLCP } = Astro.props
+const { title, description, preload, canonical, image = "/img/hero-image.webp" } = Astro.props
+
+const canonicalURL = canonical
+	? new URL(canonical, Astro.site)
+	: new URL(Astro.url.pathname, Astro.site)
+
+const keywords =
+	"ojo, laboratorio, prótesis ocular, oftálmico, oftálmica, visión, visual, cavidad ocular, ojos, implante ocular, oftalmología protésica, prótesis de ojo, laboratorio de prótesis ocular, jorge enrique lemus, chrisdev-ui"
 ---
 
 <title>{title}</title>
@@ -16,35 +31,36 @@ const { title, description, preloadImgLCP } = Astro.props
 
 <link rel="preload" href={hindMadurai} as="font" type="font/woff2" crossorigin />
 {
-	preloadImgLCP && (
-		<link rel="preload" href={preloadImgLCP} as="image" type="image/webp" crossorigin />
-	)
+	preload?.map((link) => (
+		<link rel="preload" href={link.href} as={link.as} type={link.type} crossorigin />
+	))
 }
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="canonical" href="https://example.com" />
+<link rel="canonical" href={canonicalURL} />
 <meta name="viewport" content="width=device-width" />
 <meta name="theme-color" content="#000000" />
 
-<meta
-	name="keywords"
-	content="ojo, laboratorio, prótesis ocular, oftálmico, oftálmica, visión, visual, cavidad ocular, ojos, implante ocular, oftalmología protésica, prótesis de ojo, chrisdev-ui"
-/>
+<meta name="keywords" content={keywords} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@example" />
-<meta name="twitter:creator" content="@Example" />
+<meta name="twitter:site" content="@protesisOcularesJorgeLemus" />
+<meta name="twitter:creator" content="@JorgeLemus" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content="https://example.com/og.png" />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-<meta name="og:image" content="https://example.com/og.png" />
+<meta name="og:image" content={new URL(image, Astro.url)} />
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-<meta name="og:url" content="https://example.com" />
-<meta name="og:site_name" content="Laboratorio de prótesis oculares" />
+<meta name="og:url" content={Astro.url} />
+<meta name="og:site_name" content="Laboratorio de prótesis oculares | Jorge Enrique Lemus" />
 <meta name="og:type" content="website" />
 <meta name="og:locale" content="es_ES" />
 
 <meta name="robots" content="index, follow" />
 <meta name="googlebot" content="index, follow" />
+<meta name="google-site-verification" content="OwGQPpkf4TedFl7GLvRV4twKP3WcH4ZcGprldgONYhQ" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
