@@ -1,7 +1,7 @@
 ---
+import ContactForm from "@/components/ContactForm"
 import ContactInfoContainer from "@/components/ContactInfoContainer.astro"
 import ContactInfoItem from "@/components/ContactInfoItem.astro"
-import ContactForm from "@/components/ContactForm"
 
 export interface ContactProps {
 	href: string
@@ -42,17 +42,17 @@ const contactInfo: ContactProps[] = [
 	>
 		<div class="flex w-full flex-none flex-col items-start text-left md:w-[47%]">
 			<span
-				class="mb-1 block font-body text-topper font-bold uppercase leading-[1.2em] tracking-widest text-primary [text-align:inherit]"
+				class="mb-1 block animate-slide-in-top font-body text-topper font-bold uppercase leading-[1.2em] tracking-widest text-primary [text-align:inherit]"
 			>
 				Contáctanos
 			</span>
 			<h2
-				class="relative mx-0 mb-4 mt-0 max-w-[23ch] font-title text-header font-black leading-[1.2em] text-black [text-align:inherit] dark:text-white"
+				class="relative mx-0 mb-4 mt-0 max-w-[23ch] animate-slide-in-top font-title text-header font-black leading-[1.2em] text-black delay-100 [text-align:inherit] dark:text-white"
 			>
 				Comunícate con Nosotros
 			</h2>
 			<p
-				class="m-0 mb-8 w-full max-w-[40.625rem] leading-[1.5rem] text-black [text-align:inherit] dark:text-white"
+				class="m-0 mb-8 w-full max-w-[40.625rem] animate-slide-in-top leading-[1.5rem] text-black delay-100 [text-align:inherit] dark:text-white"
 			>
 				Estamos aquí para responder a todas sus preguntas, escuchar sus inquietudes y brindarle el
 				apoyo que necesita. No dude en ponerse en contacto con nosotros. Ya sea que esté buscando
