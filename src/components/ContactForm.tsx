@@ -21,7 +21,7 @@ export default function ContactForm() {
 		type: null,
 	})
 	const [isLoading, setIsLoading] = useState(false)
-	const [timeoutId, setTimeoutId] = useState<number | null>(null)
+	const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
 
 	async function handleSubmit(event: SubmitEvent) {
 		event.preventDefault()
