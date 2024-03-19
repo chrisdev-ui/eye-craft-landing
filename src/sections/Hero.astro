@@ -55,3 +55,18 @@ import Navigation from "@/sections/Navigation.astro"
 		}
 	}
 </style>
+<script>
+	const button = document.querySelector("button")
+
+	button?.addEventListener("click", (event) => {
+		event.preventDefault()
+		const id = "#contact"
+		const section = document.querySelector(id)
+		if (section) {
+			section.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			})
+		}
+	})
+</script>
