@@ -140,6 +140,7 @@ export default function ContactForm() {
 				></textarea>
 			</label>
 			<button
+				disabled={isLoading}
 				className="relative z-[1] m-0 inline-block w-full min-w-[12.5rem] overflow-hidden rounded-lg bg-primary px-12 py-0 text-base font-bold leading-[3.5rem] text-white [border:none] [transition:color_0.3s] before:absolute before:left-0 before:top-0 before:-z-[1] before:block before:h-full before:w-0 before:bg-black before:opacity-100 before:content-[''] before:[transition:width_0.3s] hover:cursor-pointer hover:before:w-full md:w-auto dark:before:bg-white dark:hover:text-black"
 				type="submit"
 			>
