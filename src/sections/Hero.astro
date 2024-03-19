@@ -4,17 +4,24 @@ import Navigation from "@/sections/Navigation.astro"
 ---
 
 <section
-	class="hero relative flex h-screen items-center justify-between px-8 py-0 text-black dark:text-white"
+	class="hero relative flex h-screen flex-col items-center justify-center p-0 text-center text-black sm:flex-row sm:justify-between sm:px-8 sm:py-0 sm:text-left dark:text-white"
 >
 	<div
-		class="relative left-[20px] mx-auto mb-6 w-full px-4 sm:left-[130px] sm:mb-0 md:max-w-[33.333333%] md:flex-[0_0_33.333333%]"
+		class="relative mx-auto mb-6 w-full max-w-full sm:mb-0 sm:px-4 md:max-w-[33.333333%] md:flex-[0_0_33.333333%] lg:left-[130px]"
 	>
-		<Typography as="h2" variant="h2" color="black" class:list={"text-5xl uppercase"}>
-			Jorge Enrique Lemus
-		</Typography>
-		<Typography as="h1" variant="h1" color="black" class:list={"my-4 text-7xl tracking-wide"}>
-			LABORATORIO DE<span class="ml-4 text-primary">PRÓTESIS OCULAR</span>
-		</Typography>
+		<div class="mb-4 flex flex-col sm:mb-0">
+			<Typography as="h2" variant="h2" color="black" class:list={"order-2 text-h3 uppercase"}>
+				Jorge Enrique Lemus
+			</Typography>
+			<Typography
+				as="h1"
+				variant="h1"
+				color="black"
+				class:list={"order-1 my-8 text-hero tracking-wide sm:my-4"}
+			>
+				LABORATORIO DE<span class="ml-4 text-primary">PRÓTESIS OCULAR</span>
+			</Typography>
+		</div>
 		<button
 			class="group relative mb-2 me-2 mt-6 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-primary to-primary p-0.5 font-medium text-gray-900 hover:text-gray-900 focus:outline-none focus:ring-4 focus:ring-green-200 group-hover:from-primary group-hover:to-white dark:to-white dark:text-white dark:focus:ring-green-800"
 		>
