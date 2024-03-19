@@ -1,40 +1,20 @@
 ---
-import { Image } from "astro:assets"
-import Navigation from "./Navigation.astro"
-
 import Typography from "@/components/Typography.astro"
+import Navigation from "@/sections/Navigation.astro"
 ---
 
 <section
-	class="hero relative flex h-screen flex-col items-center px-8 py-0 text-center text-black dark:text-white"
+	class="hero relative flex h-screen items-center justify-between px-8 py-0 text-black dark:text-white"
 >
-	<Image
-		src="/img/hero-image.webp"
-		alt="Imagen de ojos humanos con una prótesis ocular"
-		width="1920"
-		height="1080"
-		class:list={"h-auto w-full rounded"}
-	/>
-	<Typography
-		as="h1"
-		variant="h1"
-		color="black"
-		class:list={"absolute top-1/2 w-full bg-white/10 tracking-widest dark:bg-transparent"}
+	<div
+		class="relative left-[20px] mx-auto mb-6 w-full px-4 sm:left-[130px] sm:mb-0 md:max-w-[33.333333%] md:flex-[0_0_33.333333%]"
 	>
-		LABORATORIO DE PRÓTESIS OCULAR
-	</Typography>
-	<Typography
-		as="h2"
-		variant="h2"
-		color="black"
-		class:list={"absolute top-[58%] w-full tracking-widest"}
-	>
-		JORGE ENRIQUE LEMUS
-	</Typography>
-	<Typography as="h3" variant="h3" color="black" class:list={"mt-3 tracking-wider opacity-60"}
-		>¡Descubre cómo podemos ayudarte a recuperar tu confianza y tu calidad de vida! Agenda tu cita.
-	</Typography>
-	<div class="flex flex-wrap items-center gap-6">
+		<Typography as="h2" variant="h2" color="black" class:list={"text-5xl uppercase"}>
+			Jorge Enrique Lemus
+		</Typography>
+		<Typography as="h1" variant="h1" color="black" class:list={"my-4 text-7xl tracking-wide"}>
+			LABORATORIO DE<span class="ml-4 text-primary">PRÓTESIS OCULAR</span>
+		</Typography>
 		<button
 			class="group relative mb-2 me-2 mt-6 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-primary to-primary p-0.5 font-medium text-gray-900 hover:text-gray-900 focus:outline-none focus:ring-4 focus:ring-green-200 group-hover:from-primary group-hover:to-white dark:to-white dark:text-white dark:focus:ring-green-800"
 		>
@@ -45,6 +25,21 @@ import Typography from "@/components/Typography.astro"
 			</span>
 		</button>
 	</div>
+	<div
+		class="clipped relative h-full min-h-[350px] w-full bg-[url('/img/hero-image.webp')] bg-cover bg-center px-4 md:max-w-[66.666667%] md:flex-[0_0_66.666667%]"
+	>
+	</div>
 	<Navigation />
 </section>
-<style></style>
+<style>
+	.clipped {
+		clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+	}
+
+	@media screen and (max-width: 650px) {
+		.clipped {
+			clip-path: none;
+			max-height: 300px;
+		}
+	}
+</style>
