@@ -2,19 +2,33 @@
 import SEO from "@/components/SEO.astro"
 import Footer from "@/sections/Footer.astro"
 
+interface Preload {
+	as: string
+	href: string
+	type: string
+}
+
 interface Props {
 	title: string
 	description: string
-	preloadImgLCP?: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
 }
 
-const { title, description } = Astro.props
+const { title, description, preload, canonical, image } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<SEO title={title} description={description} />
+		<SEO
+			title={title}
+			description={description}
+			image={image}
+			preload={preload}
+			canonical={canonical}
+		/>
 	</head>
 
 	<body>
