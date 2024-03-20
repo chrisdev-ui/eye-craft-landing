@@ -6,7 +6,7 @@ import Typography from "@/components/Typography.astro"
 	class="hero relative flex h-[calc(100vh-68px)] flex-col items-center justify-center p-0 text-center text-black sm:flex-row sm:justify-between sm:py-0 sm:text-left dark:text-white"
 >
 	<div
-		class="relative mx-auto mb-6 w-full max-w-full sm:mb-0 sm:px-4 md:left-12 md:max-w-[33.333333%] md:flex-[0_0_33.333333%] lg:left-[130px]"
+		class="relative mx-auto mb-6 w-full max-w-full sm:mb-0 sm:px-4 md:left-12 md:max-w-[33.333333%] md:flex-[0_0_33.333333%] lg:left-[100px]"
 	>
 		<div class="mb-4 flex flex-col sm:mb-0">
 			<Typography
@@ -37,13 +37,13 @@ import Typography from "@/components/Typography.astro"
 		</button>
 	</div>
 	<div
-		class="clipped relative h-full min-h-[350px] w-full bg-[url('/img/hero-image.webp')] bg-cover bg-center px-4 md:max-w-[66.666667%] md:flex-[0_0_66.666667%]"
+		class="clipped relative h-full min-h-[350px] w-full bg-[url('/img/hero-image.webp')] bg-contain bg-center bg-no-repeat px-4 md:max-w-[66.666667%] md:flex-[0_0_66.666667%]"
 	>
 	</div>
 </section>
 <style>
 	.clipped {
-		clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+		clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
 	}
 
 	@media screen and (max-width: 650px) {
