@@ -20,6 +20,7 @@ export default {
 				"form-title": "var(--form-title-font-size)",
 				"form-label": "var(--form-label-font-size)",
 				"hero": "var(--hero-font-size)",
+				"footer": "var(--footer-font-size)",
 			},
 			colors: {
 				"primary": "hsl(var(--color-primary) / <alpha-value>)",
