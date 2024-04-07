@@ -1,11 +1,11 @@
+import sendgridMail from "@sendgrid/mail"
 import type { APIRoute } from "astro"
-import { Resend } from "resend"
 
 import { htmlGenerator } from "@/emails/template"
 
 export const prerender = false
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY as string)
+sendgridMail.setApiKey(import.meta.env.SENDGRID_API_KEY as string)
 
 export const POST: APIRoute = async ({ request }) => {
 	const data = await request.formData()
@@ -25,9 +25,10 @@ export const POST: APIRoute = async ({ request }) => {
 			}
 		)
 	}
-	const send = await resend.emails.send({
-		from: "Contacto <no-reply@resend.dev>",
-		to: ["jelemus024726@gmail.com"],
+
+	const msg = {
+		from: { name: "Contacto", email: "contacto@em5923.protesis-ocularjlemus.com" },
+		to: "jelemus024726@gmail.com",
 		subject: "Nuevo mensaje de contacto desde tu página web",
 		html: htmlGenerator({
 			name,
@@ -35,9 +36,11 @@ export const POST: APIRoute = async ({ request }) => {
 			phone,
 			message,
 		}),
-	})
+	}
 
-	if (send.data) {
+	try {
+		await sendgridMail.send(msg)
+
 		return new Response(
 			JSON.stringify({
 				message: "El correo ha sido enviado correctamente",
@@ -47,7 +50,7 @@ export const POST: APIRoute = async ({ request }) => {
 				statusText: "OK",
 			}
 		)
-	} else {
+	} catch (error) {
 		return new Response(
 			JSON.stringify({
 				message: "El correo no pudo ser enviado. Por favor, inténtalo de nuevo.",
